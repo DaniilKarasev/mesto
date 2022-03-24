@@ -1,0 +1,5 @@
+.photo-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+}
