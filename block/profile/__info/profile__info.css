@@ -2,8 +2,25 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 16px 18px;
+    gap: 14px 10px;
     max-width: 336px;
     max-height: 73px;
     margin-right: 244px;
+}
+
+@media screen and (max-width: 900px) {
+    .profile__info {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 45px 0;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 481px) {
+    .profile__info {
+        margin: 0;
+        justify-content: center;
+    }
 }

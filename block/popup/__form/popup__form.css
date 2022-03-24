@@ -2,3 +2,9 @@
     margin: 54px 0 0 36px;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 900px) {
+    .popup__form{
+        margin: 75px 22px 25px 22px;   
+    }
+}

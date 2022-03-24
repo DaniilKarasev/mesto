@@ -1,3 +1,9 @@
 .profile__name-container {
     max-width: 294px;
 }
+
+@media screen and (max-width: 481px) {
+    .profile__name-container {
+        max-width: 189px;
+    }
+}

@@ -25,6 +25,7 @@
 @import url(../block/photo-cards/photo-cards.css);
 @import url(../block/photo-cards/__content-wrapper/photo-cards__content-wrapper.css);
 @import url(../block/photo-cards/__container/photo-cards__container.css);
+@import url(../block/photo-cards/__img/photo-cards__img.css);
 @import url(../block/photo-cards/__text-wrapper/photo-cards__text-wrapper.css);
 @import url(../block/photo-cards/__text/photo-cards__text.css);
 @import url(../block/photo-cards/__like-btn/photo-cards__like-btn.css);

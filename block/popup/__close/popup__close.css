@@ -8,9 +8,22 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
 
 .popup__close:hover {
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 481px) {
+    .popup__close {
+        background-position: center;
+        background-size: cover;
+        max-width: 20px;
+        max-height: 20px;
+        top: -30px;
+        right: 0;
+    }
 }

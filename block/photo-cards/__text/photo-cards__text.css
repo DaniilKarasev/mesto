@@ -7,3 +7,9 @@
     white-space: nowrap;
     overflow: hidden;
 }
+
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .photo-cards__text {
+        font-size: 22px;
+    }
+}

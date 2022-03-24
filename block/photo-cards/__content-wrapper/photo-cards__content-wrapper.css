@@ -4,3 +4,9 @@
     background-color: white;
     border-radius: 10px;
 }
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .photo-cards__content-wrapper {
+        height: 301px;
+        width: 232px;
+    }
+}

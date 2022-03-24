@@ -1,0 +1,5 @@
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .photo-cards__img {
+        width: 232px;
+    }
+}
