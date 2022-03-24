@@ -7,5 +7,12 @@
     justify-self: flex-end;
     box-sizing: border-box;
     background-color: white;
+    background: url(../../../images/like-btn_disable.svg) no-repeat center;
     border: none;
+    cursor: pointer;
+}
+
+.photo-cards__like-btn:hover {
+    opacity: 0.5;
+    transition: all 0.1s ease-in-out;
 }

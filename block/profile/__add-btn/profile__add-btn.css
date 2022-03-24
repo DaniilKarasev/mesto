@@ -5,5 +5,12 @@
     height: 50px;
     box-sizing: border-box;
     background-color: #000;
+    background: url(../../../images/add-btn.svg) no-repeat center;
     border: solid 1px white;
+    cursor: pointer;
+}
+
+.profile__add-btn:hover {
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
 }

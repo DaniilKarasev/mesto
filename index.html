@@ -18,59 +18,85 @@
             <section class="profile">
                 <img class="profile__avatar" src="./images/kusto.png" alt="Аватар"> 
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-btn"> <img src="./images/edit-btn.svg" alt="Редактировать"> </button>             
-                    <p class="profile__job">Исследователь океана</p>
+                    <div class="profile__name-container">
+                        <h1 class="profile__name" id="prof_name">Жак-Ив Кусто</h1>
+                    </div>                                    
+                    <button class="profile__edit-btn"></button> 
+                    <p class="profile__job" id="prof_job">Исследователь океана</p>                    
                 </div>
-                <button class="profile__add-btn"><img src="./images/add-btn.svg" alt="Добавить"></button>
+                <button class="profile__add-btn"></button>
             </section>
+
+                <div class="popup">
+                    <div class="popup__container">
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <form class="popup__form" action="submit">
+                            <input class="popup__name" type="text" value="">
+                            <input class="popup__job" type="text" value="">
+                            <button type="submit" class="popup__save">Сохранить</button>
+                        </form>
+                        <button class="popup__close"></button>
+                    </div>
+                </div>
 
             <section class="photo-cards">
                 <div class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаевск">
                     <div class="photo-cards__container">
-                        <p class="photo-cards__text">Карачаевск</p>
-                        <button class="photo-cards__like-btn"><img src="./images/like-btn.svg" alt="Лайк"></button>
+                        <div class="photo-cards__text-wrapper">
+                            <p class="photo-cards__text">Карачаевск</p>
+                        </div>
+                        <button class="photo-cards__like-btn"></button>
                     </div>
                 </div>
 
                 <div class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/elbrus.png" alt="Гора Эльбрус">
                     <div class="photo-cards__container">
-                        <p class="photo-cards__text">Гора Эльбрус</p>
-                        <button class="photo-cards__like-btn"><img src="./images/like-btn.svg" alt="Лайк"></button>
+                        <div class="photo-cards__text-wrapper">
+                            <p class="photo-cards__text">Гора Эльбрус</p>
+                        </div>
+                        <button class="photo-cards__like-btn"></button>
                     </div>
                 </div>
 
                 <div class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/domnai.png" alt="Домбай">
                     <div class="photo-cards__container">
-                        <p class="photo-cards__text">Домбай</p>
-                        <button class="photo-cards__like-btn"><img src="./images/like-btn.svg" alt="Лайк"></button>
+                        <div class="photo-cards__text-wrapper">
+                            <p class="photo-cards__text">Домбай</p>
+                        </div>
+                        <button class="photo-cards__like-btn"></button>
                     </div>
                 </div>
 
                 <div class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/elbrus.png" alt="Гора Эльбрус">
                     <div class="photo-cards__container">
-                        <p class="photo-cards__text">Гора Эльбрус</p>
-                        <button class="photo-cards__like-btn"><img src="./images/like-btn.svg" alt="Лайк"></button>
+                        <div class="photo-cards__text-wrapper">
+                            <p class="photo-cards__text">Гора Эльбрус</p>
+                        </div>
+                        <button class="photo-cards__like-btn"></button>
                     </div>
                 </div>
 
                 <div class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/domnai.png" alt="Домбай">
                     <div class="photo-cards__container">
-                        <p class="photo-cards__text">Домбай</p>
-                        <button class="photo-cards__like-btn"><img src="./images/like-btn.svg" alt="Лайк"></button>
+                        <div class="photo-cards__text-wrapper">
+                            <p class="photo-cards__text">Домбай</p>
+                        </div>
+                        <button class="photo-cards__like-btn"></button>
                     </div>
                 </div>
 
                 <div class="photo-cards__content-wrapper">
-                    <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаево-Ч...">
+                    <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаево-Черкессия">
                     <div class="photo-cards__container">
-                        <p class="photo-cards__text">Карачаево-Ч...</p>
-                        <button class="photo-cards__like-btn"><img src="./images/like-btn.svg" alt="Лайк"></button>
+                        <div class="photo-cards__text-wrapper">
+                            <p class="photo-cards__text">Карачаево-Черкессия</p>
+                        </div>
+                        <button class="photo-cards__like-btn"></button>
                     </div>
                 </div>
             </section>

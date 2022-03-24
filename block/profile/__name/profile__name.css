@@ -6,4 +6,7 @@
     padding: 0;
     margin-block-start: 0;
     margin-block-end: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
