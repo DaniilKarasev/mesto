@@ -1,0 +1,17 @@
+.popup__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 430px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .popup__container {
+        max-width: 282px;
+        max-height: 322px;
+    }
+}
+
+/* transform: translate(-50%, -50%); */

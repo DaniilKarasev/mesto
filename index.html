@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./page/index.css">
+    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="root">
     
@@ -18,88 +18,76 @@
             <section class="profile">
                 <img class="profile__avatar" src="./images/kusto.png" alt="Аватар"> 
                 <div class="profile__info">
-                    <div class="profile__name-container">
-                        <h1 class="profile__name" id="prof_name">Жак-Ив Кусто</h1>
-                    </div>                                    
-                    <button class="profile__edit-btn"></button> 
+                    <h1 class="profile__name" id="prof_name">Жак-Ив Кусто</h1>                   
+                    <button class="profile__edit-btn" type="button"></button> 
                     <p class="profile__job" id="prof_job">Исследователь океана</p>                    
                 </div>
-                <button class="profile__add-btn"></button>
+                <button class="profile__add-btn" type="button"></button>
             </section>
 
-                <div class="popup">
-                    <div class="popup__container">
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <form class="popup__form" action="submit">
-                            <input class="popup__name" type="text" value="">
-                            <input class="popup__job" type="text" value="">
-                            <button type="submit" class="popup__save">Сохранить</button>
-                        </form>
-                        <button class="popup__close"></button>
-                    </div>
-                </div>
+            <div class="photo-cards">
 
-            <section class="photo-cards">
-                <div class="photo-cards__content-wrapper">
+                <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаевск">
-                    <div class="photo-cards__container">
-                        <div class="photo-cards__text-wrapper">
-                            <h4 class="photo-cards__text">Карачаевск</h4>
-                        </div>
-                        <button class="photo-cards__like-btn"></button>
+                    <div class="photo-cards__container">                       
+                        <h2 class="photo-cards__text">Карачаевск</h2>
+                        <button class="photo-cards__like-btn" type="button"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="photo-cards__content-wrapper">
+                <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/elbrus.png" alt="Гора Эльбрус">
                     <div class="photo-cards__container">
-                        <div class="photo-cards__text-wrapper">
-                            <h4 class="photo-cards__text">Гора Эльбрус</h4>
-                        </div>
-                        <button class="photo-cards__like-btn"></button>
+                        <h2 class="photo-cards__text">Гора Эльбрус</h2>
+                        <button class="photo-cards__like-btn" type="button"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="photo-cards__content-wrapper">
+                <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/domnai.png" alt="Домбай">
                     <div class="photo-cards__container">
-                        <div class="photo-cards__text-wrapper">
-                            <h4 class="photo-cards__text">Домбай</h4>
-                        </div>
-                        <button class="photo-cards__like-btn"></button>
+                        <h2 class="photo-cards__text">Домбай</h2>
+                        <button class="photo-cards__like-btn" type="button"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="photo-cards__content-wrapper">
+                <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/elbrus.png" alt="Гора Эльбрус">
                     <div class="photo-cards__container">
-                        <div class="photo-cards__text-wrapper">
-                            <h4 class="photo-cards__text">Гора Эльбрус</h4>
-                        </div>
-                        <button class="photo-cards__like-btn"></button>
+                        <h2 class="photo-cards__text">Гора Эльбрус</h2>
+                        <button class="photo-cards__like-btn" type="button"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="photo-cards__content-wrapper">
+                <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/domnai.png" alt="Домбай">
                     <div class="photo-cards__container">
-                        <div class="photo-cards__text-wrapper">
-                            <h4 class="photo-cards__text">Домбай</h4>
-                        </div>
-                        <button class="photo-cards__like-btn"></button>
+                        <h2 class="photo-cards__text">Домбай</h2>
+                        <button class="photo-cards__like-btn" type="button"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="photo-cards__content-wrapper">
+                <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаево-Черкессия">
                     <div class="photo-cards__container">
-                        <div class="photo-cards__text-wrapper">
-                            <h4 class="photo-cards__text">Карачаево-Черкессия</h4>
-                        </div>
-                        <button class="photo-cards__like-btn"></button>
+                        <h3 class="photo-cards__text">Карачаево-Черкессия</h3>
+                        <button class="photo-cards__like-btn" type="button"></button>
                     </div>
+                </article>
+            </div>
+
+            <div class="popup">
+                <div class="popup__container">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form class="popup__form" name="popupform" action="submit">
+                        <input class="popup__input popup__input_value_name" name="popupname" type="text" value="">
+                        <input class="popup__input popup__input_value_job" name="popupjob" type="text" value="">
+                        <button class="popup__save" type="submit">Сохранить</button>
+                    </form>
+                    <button class="popup__close" type="button"></button>
                 </div>
-            </section>
+            </div>
+
         </main>
 
         <footer class="footer">
@@ -107,6 +95,6 @@
         </footer>
     </div>
 
-<script src="./script/script.js"></script>
+<script src="./script/index.js"></script>
 </body>
 </html>

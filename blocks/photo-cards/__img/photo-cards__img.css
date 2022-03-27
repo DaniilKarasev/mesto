@@ -1,0 +1,12 @@
+.photo-cards__img {
+    max-width: 282px;
+    max-height: 282px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .photo-cards__img {
+        width: 232px;
+    }
+}

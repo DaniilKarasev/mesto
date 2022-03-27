@@ -1,0 +1,19 @@
+.photo-cards__text {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin-left: 21px;
+    padding-right: 30px;
+    font-size: 24px;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .photo-cards__text {
+        font-size: 22px;
+    }
+}
