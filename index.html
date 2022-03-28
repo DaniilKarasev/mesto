@@ -19,19 +19,19 @@
                 <img class="profile__avatar" src="./images/kusto.png" alt="Аватар"> 
                 <div class="profile__info">
                     <h1 class="profile__name" id="prof_name">Жак-Ив Кусто</h1>                   
-                    <button class="profile__edit-btn" type="button"></button> 
+                    <button class="profile__edit-btn" type="button" aria-label="Редактировать"></button> 
                     <p class="profile__job" id="prof_job">Исследователь океана</p>                    
                 </div>
-                <button class="profile__add-btn" type="button"></button>
+                <button class="profile__add-btn" type="button" aria-label="Добавить карточку"></button>
             </section>
 
-            <div class="photo-cards">
+            <section class="photo-cards">
 
                 <article class="photo-cards__content-wrapper">
                     <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаевск">
                     <div class="photo-cards__container">                       
                         <h2 class="photo-cards__text">Карачаевск</h2>
-                        <button class="photo-cards__like-btn" type="button"></button>
+                        <button class="photo-cards__like-btn" type="button" aria-label="Нравится"></button>
                     </div>
                 </article>
 
@@ -39,7 +39,7 @@
                     <img class="photo-cards__img" src="./images/elbrus.png" alt="Гора Эльбрус">
                     <div class="photo-cards__container">
                         <h2 class="photo-cards__text">Гора Эльбрус</h2>
-                        <button class="photo-cards__like-btn" type="button"></button>
+                        <button class="photo-cards__like-btn" type="button" aria-label="Нравится"></button>
                     </div>
                 </article>
 
@@ -47,7 +47,7 @@
                     <img class="photo-cards__img" src="./images/domnai.png" alt="Домбай">
                     <div class="photo-cards__container">
                         <h2 class="photo-cards__text">Домбай</h2>
-                        <button class="photo-cards__like-btn" type="button"></button>
+                        <button class="photo-cards__like-btn" type="button" aria-label="Нравится"></button>
                     </div>
                 </article>
 
@@ -55,7 +55,7 @@
                     <img class="photo-cards__img" src="./images/elbrus.png" alt="Гора Эльбрус">
                     <div class="photo-cards__container">
                         <h2 class="photo-cards__text">Гора Эльбрус</h2>
-                        <button class="photo-cards__like-btn" type="button"></button>
+                        <button class="photo-cards__like-btn" type="button" aria-label="Нравится"></button>
                     </div>
                 </article>
 
@@ -63,7 +63,7 @@
                     <img class="photo-cards__img" src="./images/domnai.png" alt="Домбай">
                     <div class="photo-cards__container">
                         <h2 class="photo-cards__text">Домбай</h2>
-                        <button class="photo-cards__like-btn" type="button"></button>
+                        <button class="photo-cards__like-btn" type="button" aria-label="Нравится"></button>
                     </div>
                 </article>
 
@@ -71,20 +71,20 @@
                     <img class="photo-cards__img" src="./images/karachaevsk.png" alt="Карачаево-Черкессия">
                     <div class="photo-cards__container">
                         <h3 class="photo-cards__text">Карачаево-Черкессия</h3>
-                        <button class="photo-cards__like-btn" type="button"></button>
+                        <button class="photo-cards__like-btn" type="button" aria-label="Нравится"></button>
                     </div>
                 </article>
-            </div>
+            </section>
 
             <div class="popup">
                 <div class="popup__container">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form" name="popupform" action="submit">
-                        <input class="popup__input popup__input_value_name" name="popupname" type="text" value="">
-                        <input class="popup__input popup__input_value_job" name="popupjob" type="text" value="">
+                    <form class="popup__form" name="popUpEditForm" action="submit">
+                        <input class="popup__input popup__input_value_name" name="popUpEditName" type="text" value="">
+                        <input class="popup__input popup__input_value_job" name="popUpEditJob" type="text" value="">
                         <button class="popup__save" type="submit">Сохранить</button>
                     </form>
-                    <button class="popup__close" type="button"></button>
+                    <button class="popup__close" type="button" aria-label="Закрыть"></button>
                 </div>
             </div>
 
