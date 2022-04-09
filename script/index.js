@@ -1,6 +1,6 @@
 //! Переменные относящие к попапу редактирования профиля
 const profileEditBtn = document.querySelector('.profile__edit-btn'); // находим кнопку открытия попрапа профиля
-const popUpProfileEdit = document.querySelector('.popup__profile-edit'); // находим попап редактирования профиля
+const popUpProfileEdit = document.querySelector('.popup_type_profile-edit'); // находим попап редактирования профиля
 const popUpProfileEditFormElement = popUpProfileEdit.querySelector('.popup__form'); // находим форму попапа профиля
 const popUpProfileEditName = popUpProfileEdit.querySelector('.popup__input_value_name'); // находим инпут имени в попапе профиля
 const popUpProfileEditJob = popUpProfileEdit.querySelector('.popup__input_value_job'); // находим инпут работы в попапе профиля
@@ -10,7 +10,7 @@ const profilJob = document.getElementById('prof_job'); // находим раб�
 
 //! Переменные относящиеся к попапу добавления фото-карточек
 const addCardsBtn = document.querySelector('.profile__add-btn'); // находим кнопку добавления карточки
-const popUpAddCards = document.querySelector('.popup__add-cards'); // находим попап добавления фото-карточек
+const popUpAddCards = document.querySelector('.popup_type_add-cards'); // находим попап добавления фото-карточек
 const popUpAddCardsFormElement = popUpAddCards.querySelector('.popup__form'); // находим форму попапа
 const popUpAddCardsEditName = popUpAddCards.querySelector('.popup__input_value_add-name'); // находим инпут имени новой карточки
 const popUpAddCardsLink = popUpAddCards.querySelector('.popup__input_value_link'); // находим инпут ссылки на новое изображение карточки
@@ -18,7 +18,7 @@ const popUpAddCardsCloseBtn = popUpAddCards.querySelector('.popup__close'); // �
 
 //! Переменные относящиеся к попапу изображения карточки
 const cardsImg = document.querySelector('.photo-cards__img'); // находим изображение карточки
-const popUpCardsImg = document.querySelector('.popup__cards-img'); // находим попап для посмотра изображения
+const popUpCardsImg = document.querySelector('.popup_type_cards-img'); // находим попап для посмотра изображения
 const popUpCardsImgSrc = popUpCardsImg.querySelector('.popup__img'); // находим изоборажение в попапе
 const popUpCardsImgText = popUpCardsImg.querySelector('.popup__img-text'); // находим название карточки в попапе
 const popUpCardsImgCloseBtn = popUpCardsImg.querySelector('.popup__close'); // находим кнопку закрытия попапа
@@ -101,7 +101,7 @@ initialCards.forEach (function (element){
 
         //реализация открытия попапа изображения для автоматически загруженных карточек
         photoElement.querySelector('.photo-cards__img').addEventListener('click', function(){
-            const popUpCardsImg = document.querySelector('.popup__cards-img');
+            const popUpCardsImg = document.querySelector('.popup_type_cards-img');
             popUpCardsImgSrc.src = photoElement.querySelector('.photo-cards__img').src;
             popUpCardsImgSrc.alt = photoElement.querySelector('.photo-cards__text').textContent;
             popUpCardsImgText.textContent = photoElement.querySelector('.photo-cards__text').textContent;
@@ -142,7 +142,7 @@ function addCardsSubmitHandler (evt) {
 
     //реализация открытия попапа изображения для добавленных карточек
     photoElement.querySelector('.photo-cards__img').addEventListener('click', function(){
-        const popUpCardsImg = document.querySelector('.popup__cards-img');
+        const popUpCardsImg = document.querySelector('.popup_type_cards-img');
         popUpCardsImgSrc.src = photoElement.querySelector('.photo-cards__img').src;
         popUpCardsImgSrc.alt = photoElement.querySelector('.photo-cards__text').textContent;
         popUpCardsImgText.textContent = photoElement.querySelector('.photo-cards__text').textContent;
