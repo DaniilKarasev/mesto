@@ -1,0 +1,10 @@
+.popup__cards-img {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+@media screen and (max-width: 450px) {
+    .popup__cards-img {
+        background-color: rgba(0, 0, 0, 1);
+    }
+}
+
