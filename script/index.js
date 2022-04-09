@@ -91,6 +91,7 @@ function formSubmitHandler (evt) {
 initialCards.forEach (function (element){
     const photoElement = photoTemplate.querySelector('.photo-cards__content-wrapper').cloneNode(true); // клонируем содержимое теймплейта карточки
     photoElement.querySelector('.photo-cards__img').src = element.link; // берём изобржение для карточки из массива
+    photoElement.querySelector('.photo-cards__img').alt = element.name; // задаём альтернативны текст карточки равный имени карточки
     photoElement.querySelector('.photo-cards__text').textContent = element.name; // берём название карточки из массива
 
         //реализация постановки лайков для автоматически загруженных карточек
@@ -102,6 +103,7 @@ initialCards.forEach (function (element){
         photoElement.querySelector('.photo-cards__img').addEventListener('click', function(){
             const popUpCardsImg = document.querySelector('.popup__cards-img');
             popUpCardsImgSrc.src = photoElement.querySelector('.photo-cards__img').src;
+            popUpCardsImgSrc.alt = photoElement.querySelector('.photo-cards__text').textContent;
             popUpCardsImgText.textContent = photoElement.querySelector('.photo-cards__text').textContent;
             popUpCardsImg.classList.add('popup_opened');
         });
@@ -123,6 +125,7 @@ function addCardsSubmitHandler (evt) {
     const photoElement = photoTemplate.querySelector('.photo-cards__content-wrapper').cloneNode(true); // клонируем содержимое теймплейта карточки
     photoElement.querySelector('.photo-cards__text').textContent = popUpAddCardsEditName.value; // принимаем значение для названия из инпута попапа
     photoElement.querySelector('.photo-cards__img').src = popUpAddCardsLink.value; // принимаем значение для адреса изображения из инпута попапа
+    photoElement.querySelector('.photo-cards__img').alt = popUpAddCardsEditName.value; // задаём альтернативны текст карточки равный значению из попапа названия карточки
 
     photoCards.prepend(photoElement); // добавляем карточку вначало секции
 
@@ -141,6 +144,7 @@ function addCardsSubmitHandler (evt) {
     photoElement.querySelector('.photo-cards__img').addEventListener('click', function(){
         const popUpCardsImg = document.querySelector('.popup__cards-img');
         popUpCardsImgSrc.src = photoElement.querySelector('.photo-cards__img').src;
+        popUpCardsImgSrc.alt = photoElement.querySelector('.photo-cards__text').textContent;
         popUpCardsImgText.textContent = photoElement.querySelector('.photo-cards__text').textContent;
         popUpCardsImg.classList.add('popup_opened');
     });
