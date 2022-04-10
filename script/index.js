@@ -75,10 +75,6 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
 };
 
-    //берём для полей попапа редактировая профиля информацию о имени и должности из данных профиля
-    popUpProfileEditName.value = profilName.textContent; 
-    popUpProfileEditJob.value = profilJob.textContent; 
-
 //функция отправки данных из инпутов попапа редактирования профиля
 function handleProfileFormSubmit (evt) {
     evt.preventDefault(); // отменяем стандартную отправку формы.
@@ -102,11 +98,11 @@ function createCard(cardName, cardLink) {
         cardElement.querySelector('.photo-cards__like-btn').addEventListener('click', (evt) => evt.target.classList.toggle('photo-cards__like-btn_active'));
 
         //открытие попапа с изображением карточки
-        cardElement.querySelector('.photo-cards__img').addEventListener('click', function(){
+        cardImgElement.addEventListener('click', function(){
             popUpCardsImgSrc.src = cardLink;
             popUpCardsImgSrc.alt = cardName;
             popUpCardsImgText.textContent = cardName;
-            popUpCardsImg.classList.add('popup_opened');
+            openPopup(popUpCardsImg);
         });
 
         //удаление карточки
@@ -139,7 +135,7 @@ function handleAddCardsSubmit (evt){
 
 //! обработчики событий для попапа редактирования профиля
 popUpProfileEditFormElement.addEventListener('submit', handleProfileFormSubmit); //обработичик оправки данных из формы попапа редактирования профиля
-profileEditBtn.addEventListener('click', () => openPopup(popUpProfileEdit)); //обработичик открытия попапа редактирования профиля
+profileEditBtn.addEventListener('click', () => openPopup(popUpProfileEdit), popUpProfileEditName.value = profilName.textContent, popUpProfileEditJob.value = profilJob.textContent); //обработичик открытия попапа редактирования профиля
 popUpProfileEditCloseBtn.addEventListener('click', () => closePopup(popUpProfileEdit)); //обработичик закрытия попапа редактирования профиля
 
 //! обработчики сотыбий для попапа добавления фото-карточек
