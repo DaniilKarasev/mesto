@@ -65,103 +65,88 @@ const initialCards = [
 
 
 //! попап профиля
-//функция открытия попапа редактирования профиля
-function openPopUpProfileEdit() {
-    popUpProfileEdit.classList.add('popup_opened'); // откываем попап
-    popUpProfileEditName.value = profilName.textContent; //подставляем данные из прифиля в иптупы попапа
-    popUpProfileEditJob.value = profilJob.textContent;
+//функция открытия попапа
+function openPopup(popup) {
+    popup.classList.add('popup_opened');
 };
 
-//функция закрытия попапа редактирования профиля
-function closePopUpProfileEdit() {
-    popUpProfileEdit.classList.remove('popup_opened');
+//функция закрытия попапа
+function closePopup(popup) {
+    popup.classList.remove('popup_opened');
 };
+
+    //берём для полей попапа редактировая профиля информацию о имени и должности из данных профиля
+    popUpProfileEditName.value = profilName.textContent; 
+    popUpProfileEditJob.value = profilJob.textContent; 
 
 //функция отправки данных из инпутов попапа редактирования профиля
 function handleProfileFormSubmit (evt) {
     evt.preventDefault(); // отменяем стандартную отправку формы.
-
     profilName.textContent = popUpProfileEditName.value; //заменяем значение данных профиля на велью инпутов попапа
     profilJob.textContent = popUpProfileEditJob.value;
 
-    closePopUpProfileEdit(); // закрыаем попап
+    closePopup(popUpProfileEdit); // закрыаем попап
 };
 
 //! блоккарточек
-//создание 6-ти фото-карточкек  при загрузке страницы с данными массива
 
-function createCard(item) {
-    const cardElement = photoTemplate.querySelector('.photo-cards__content-wrapper').cloneNode(true);
-    const cardsTemplateImg = cardElement.querySelector('.photo-cards__img');
-    const cardsTemplateText = cardElement.querySelector('.photo-cards__text');
-    
-    cardsTemplateImg.src = item.link;
-    cardsTemplateImg.alt = item.name;
-    cardsTemplateText.textContent = item.name;
+//фунция создания карточек
+function createCard(cardName, cardLink) {
+    const cardElement = photoTemplate.querySelector('.photo-cards__content-wrapper').cloneNode(true); //клонируем содержимое тейплейта
+    const cardImgElement = cardElement.querySelector('.photo-cards__img'); // находим картинку карточки
+    cardImgElement.src = cardLink; // задём путь до картинки
+    cardImgElement.alt = cardLink; // задём альтернативный текс для картинки
+    cardElement.querySelector('.photo-cards__text').textContent = cardName; // задаём имя карточки
         
-        cardElement.querySelector('.photo-cards__like-btn').addEventListener('click', function(evt){
-            evt.target.classList.toggle('photo-cards__like-btn_active');
-        });
+        //постановка лайка карточке
+        cardElement.querySelector('.photo-cards__like-btn').addEventListener('click', (evt) => evt.target.classList.toggle('photo-cards__like-btn_active'));
 
-        
+        //открытие попапа с изображением карточки
         cardElement.querySelector('.photo-cards__img').addEventListener('click', function(){
-            popUpCardsImgSrc.src = item.link;
-            popUpCardsImgSrc.alt = item.name;
-            popUpCardsImgText.textContent = item.name;
+            popUpCardsImgSrc.src = cardLink;
+            popUpCardsImgSrc.alt = cardName;
+            popUpCardsImgText.textContent = cardName;
             popUpCardsImg.classList.add('popup_opened');
         });
 
-        
-        cardElement.querySelector('.photo-cards__delete-btn').addEventListener('click', function(){
-            cardElement.remove();
-        });
+        //удаление карточки
+        cardElement.querySelector('.photo-cards__delete-btn').addEventListener('click', () => cardElement.remove());
 
     return cardElement
 }
 
-initialCards.forEach (function (element){
-    const photoElement = createCard(element);
-    photoCards.append(photoElement);
-});
+    //добавление карточек на основе данных массива initialCards
+    initialCards.forEach((card) => photoCards.append(createCard(card.name, card.link)));
 
-//функция добавления фото-карточки
+    //функция добавления новой карточки
+    function addCard(name, link) {
+        photoCards.prepend(createCard(name, link)); // создаём карточку
+        closePopup(popUpAddCards); // закрываем попап
+
+        popUpAddCardsFormElement.reset(); // очищаем поля ввода
+    };
+
+
+
+//функция отправки данных из формы попапа фото-карточки
 function handleAddCardsSubmit (evt){
-    evt.preventDefault();
-    
-    const photoElement = createCard(cardElement);
-    photoElement.querySelector('.photo-cards__text').textContent = popUpAddCardsEditName.value;
-    photoElement.querySelector('.photo-cards__img').src = popUpAddCardsLink.value;
-    
-    photoCards.append(photoElement);
+    evt.preventDefault(); // отменяем стандартную отправку формы
 
+    addCard(popUpAddCardsEditName.value, popUpAddCardsLink.value); // получаем данные о созданной карточке присваивя значения пути и имени из инпутов
 };
 
-// функция открытия попапа редактирования карточек
-function openPopUpAddCards() {
-    popUpAddCards.classList.add('popup_opened');
-};
-
-// функция закрытия попапа добавления карточки
-function closePopUpAddCards() {
-    popUpAddCards.classList.remove('popup_opened');
-};
-
-// функция закрытия попапа изображения
-function closePopUpCardsImg() {
-    popUpCardsImg.classList.remove('popup_opened');
-};
 
 
 //! обработчики событий для попапа редактирования профиля
 popUpProfileEditFormElement.addEventListener('submit', handleProfileFormSubmit); //обработичик оправки данных из формы попапа редактирования профиля
-profileEditBtn.addEventListener('click', openPopUpProfileEdit); //обработичик открытия попапа редактирования профиля
-popUpProfileEditCloseBtn.addEventListener('click', closePopUpProfileEdit); //обработичик закрытия попапа редактирования профиля
+profileEditBtn.addEventListener('click', () => openPopup(popUpProfileEdit)); //обработичик открытия попапа редактирования профиля
+popUpProfileEditCloseBtn.addEventListener('click', () => closePopup(popUpProfileEdit)); //обработичик закрытия попапа редактирования профиля
 
 //! обработчики сотыбий для попапа добавления фото-карточек
 popUpAddCardsFormElement.addEventListener('submit', handleAddCardsSubmit); //обработичик оправки данных из формы попапа
-addCardsBtn.addEventListener('click', openPopUpAddCards); //обработичик открытия попапа
-popUpAddCardsCloseBtn.addEventListener('click', closePopUpAddCards); //обработичик закрытия попапа 
+addCardsBtn.addEventListener('click', () => openPopup(popUpAddCards)); //обработичик открытия попапа
+popUpAddCardsCloseBtn.addEventListener('click', () => closePopup(popUpAddCards)); //обработичик закрытия попапа 
 
 //! обработчик собития для попапа изображений
-popUpCardsImgCloseBtn.addEventListener('click', closePopUpCardsImg); //обработчик закрытия попапа
+popUpCardsImgCloseBtn.addEventListener('click', () => closePopup(popUpCardsImg)); //обработчик закрытия попапа
 
