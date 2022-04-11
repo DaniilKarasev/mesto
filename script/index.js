@@ -135,7 +135,11 @@ function handleAddCardsSubmit (evt){
 
 //! обработчики событий для попапа редактирования профиля
 popUpProfileEditFormElement.addEventListener('submit', handleProfileFormSubmit); //обработичик оправки данных из формы попапа редактирования профиля
-profileEditBtn.addEventListener('click', () => openPopup(popUpProfileEdit), popUpProfileEditName.value = profilName.textContent, popUpProfileEditJob.value = profilJob.textContent); //обработичик открытия попапа редактирования профиля
+profileEditBtn.addEventListener('click', () => {
+    openPopup(popUpProfileEdit);
+    popUpProfileEditName.value = profilName.textContent;
+    popUpProfileEditJob.value = profilJob.textContent;
+}); //обработичик открытия попапа редактирования профиля
 popUpProfileEditCloseBtn.addEventListener('click', () => closePopup(popUpProfileEdit)); //обработичик закрытия попапа редактирования профиля
 
 //! обработчики сотыбий для попапа добавления фото-карточек
