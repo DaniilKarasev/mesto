@@ -71,11 +71,19 @@ const initialCards = [
 //функция открытия попапа
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+
+    closeEscPopup(popup);
 };
 
 //функция закрытия попапа
-function closePopup(popup) {
+function closePopup(popup, ) {
     popup.classList.remove('popup_opened');
+    popup.removeEventListener('keydown', closeEscPopup(popup));
+    const popupSaveBtn = popup.querySelector('.popup__save');
+
+    //переключение кнопки в инактив после добавления карточки\изменений профиля
+    popupSaveBtn.disabled = true;
+    popupSaveBtn.classList.add('popup__save_inactive');
 };
 
 //функция отправки данных из инпутов попапа редактирования профиля
@@ -134,14 +142,16 @@ function handleAddCardsSubmit (evt){
     addCard(popUpAddCardsEditName.value, popUpAddCardsLink.value); // получаем данные о созданной карточке присваивя значения пути и имени из инпутов
 };
 
+//функция закрытия попапа по кнопке ESC
+function closeEscPopup (popup) {
+    document.addEventListener('keydown', function (evt) {
+        if (evt.key === 'Escape') {
+            popup.querySelector('.popup_opened');
+            popup.classList.remove('popup_opened');
+    }});
+};
 
-//фукнция закрытия попапов по кнопке ESC
-document.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Escape') {
-        popupOverlay.forEach((popups) =>popups.classList.remove('popup_opened'))}
-});
-
-//Функция закрытия попапа по клику за пределами рабочей зоны попапа
+//Функция закрытия попапа по клику за пределами рабочей зоны
 document.addEventListener('click', function(evt){
     if (evt.target.classList.contains('popup_opened')){
         evt.target.classList.remove('popup_opened');

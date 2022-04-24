@@ -48,7 +48,14 @@ const enableValidation = () => {
     });
 };
 
-enableValidation();
+enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+});
 
 function hasInvalidInput (inputList){
     return inputList.some((inputElement) => {
@@ -59,7 +66,9 @@ function hasInvalidInput (inputList){
 function toggleButtonState (inputList, buttonElement){
     if(hasInvalidInput(inputList)){
         buttonElement.classList.add('popup__save_inactive');
+        buttonElement.disabled = true;
     } else {
         buttonElement.classList.remove('popup__save_inactive');
+        buttonElement.disabled = false;
     };
 };
