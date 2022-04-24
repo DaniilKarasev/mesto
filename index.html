@@ -32,10 +32,19 @@
             <div class="popup popup_type_profile-edit">
                 <div class="popup__container">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form" name="popUpEditForm" action="submit">
-                        <input class="popup__input popup__input_value_name" name="popUpEditName" type="text" value="">
-                        <input class="popup__input popup__input_value_job" name="popUpEditJob" type="text" value="">
-                        <button class="popup__save" type="submit">Сохранить</button>
+                    <form class="popup__form" name="popUpEditForm" action="submit" novalidate>
+                        <fieldset class="popup__set">
+                            <label for="name-input">
+                                <input class="popup__input popup__input_value_name" name="popUpEditName" id="name-input" type="text" minlength="2" maxlength="40" value="" required>
+                                <span class="name-input-error"></span>
+                            </label>
+                            <label for="job-input">
+                                <input class="popup__input popup__input_value_job" name="popUpEditJob" id="job-input" type="text" minlength="2" maxlength="200" value="" required>
+                                <span class="job-input-error"></span>
+                            </label>
+                            <button class="popup__save" type="submit">Сохранить</button>                       
+                        </fieldset>
+                        
                     </form>
                     <button class="popup__close" type="button" aria-label="Закрыть"></button>
                 </div>
@@ -44,10 +53,18 @@
             <div class="popup popup_type_add-cards">
                 <div class="popup__container">
                     <h2 class="popup__title">Новое место</h2>
-                    <form class="popup__form" name="popUpEditForm" action="submit">
-                        <input class="popup__input popup__input_value_add-name" name="popUpEditCardName" type="text" value="" placeholder="Название">
-                        <input class="popup__input popup__input_value_link" name="popUpEditCardLink" type="text" value="" placeholder="Ссылка на картинку">
-                        <button class="popup__save" type="submit">Создать</button>
+                    <form class="popup__form" name="popUpEditForm" action="submit" novalidate>
+                        <fieldset class="popup__set">
+                            <label for="card-name-input">
+                                <input class="popup__input popup__input_value_add-name" name="popUpEditCardName" id="card-name-input" type="text" minlength="2" maxlength="30" placeholder="Название" value="" required>
+                                <span class="card-name-input-error"></span>
+                            </label>
+                            <label for="card-url-input">
+                                <input class="popup__input popup__input_value_link" name="popUpEditCardLink" id="card-url-input" type="url" placeholder="Ссылка на картинку" value="" required>
+                                <span class="card-url-input-error"></span>
+                            </label>
+                            <button class="popup__save" type="submit">Создать</button>
+                        </fieldset>                        
                     </form>
                     <button class="popup__close" type="button" aria-label="Закрыть"></button>
                 </div>
@@ -80,5 +97,6 @@
     </template>
 
 <script src="./script/index.js"></script>
+<script src="./script/validate.js"></script>
 </body>
 </html>

@@ -30,6 +30,9 @@ const photoTemplate = document.querySelector('#templateCards').content; // на�
 const cardsLink = photoTemplate.querySelector('photo-cards__img'); // находим изображение карточки
 const cardsName = photoTemplate.querySelector('photo-cards__text'); // находим название карточки
 
+//! Нахожим оверлей попапа
+const popupOverlay = document.querySelectorAll('.popup');
+
 //! массив с данными фото-карточек
 const initialCards = [
     {
@@ -131,6 +134,19 @@ function handleAddCardsSubmit (evt){
     addCard(popUpAddCardsEditName.value, popUpAddCardsLink.value); // получаем данные о созданной карточке присваивя значения пути и имени из инпутов
 };
 
+
+//фукнция закрытия попапов по кнопке ESC
+document.addEventListener('keydown', function (evt) {
+    if (evt.key === 'Escape') {
+        popupOverlay.forEach((popups) =>popups.classList.remove('popup_opened'))}
+});
+
+//Функция закрытия попапа по клику за пределами рабочей зоны попапа
+document.addEventListener('click', function(evt){
+    if (evt.target.classList.contains('popup_opened')){
+        evt.target.classList.remove('popup_opened');
+    }
+});
 
 
 //! обработчики событий для попапа редактирования профиля
