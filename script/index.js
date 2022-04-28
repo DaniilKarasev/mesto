@@ -15,6 +15,7 @@ const popUpAddCardsFormElement = popUpAddCards.querySelector('.popup__form'); //
 const popUpAddCardsEditName = popUpAddCards.querySelector('.popup__input_value_add-name'); // находим инпут имени новой карточки
 const popUpAddCardsLink = popUpAddCards.querySelector('.popup__input_value_link'); // находим инпут ссылки на новое изображение карточки
 const popUpAddCardsCloseBtn = popUpAddCards.querySelector('.popup__close'); // находим кнопку закрытия попапа
+const popupSave = popUpAddCards.querySelector('.popup__save');
 
 //! Переменные относящиеся к попапу изображения карточки
 const cardsImg = document.querySelector('.photo-cards__img'); // находим изображение карточки
@@ -71,19 +72,13 @@ const initialCards = [
 //функция открытия попапа
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-
-    closeEscPopup(popup);
+    document.addEventListener('keydown', closeEscPopup);
 };
 
 //функция закрытия попапа
-function closePopup(popup, ) {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    popup.removeEventListener('keydown', closeEscPopup(popup));
-    const popupSaveBtn = popup.querySelector('.popup__save');
-
-    //переключение кнопки в инактив после добавления карточки\изменений профиля
-    popupSaveBtn.disabled = true;
-    popupSaveBtn.classList.add('popup__save_inactive');
+    document.removeEventListener('keydown', closeEscPopup);
 };
 
 //функция отправки данных из инпутов попапа редактирования профиля
@@ -93,6 +88,11 @@ function handleProfileFormSubmit (evt) {
     profilJob.textContent = popUpProfileEditJob.value;
 
     closePopup(popUpProfileEdit); // закрыаем попап
+};
+
+function disableSubmitButton (buttonElement, inactiveButtonClass) {
+    buttonElement.classList.add(inactiveButtonClass);
+    buttonElement.disabled = true;
 };
 
 //! блоккарточек
@@ -143,12 +143,11 @@ function handleAddCardsSubmit (evt){
 };
 
 //функция закрытия попапа по кнопке ESC
-function closeEscPopup (popup) {
-    document.addEventListener('keydown', function (evt) {
-        if (evt.key === 'Escape') {
-            popup.querySelector('.popup_opened');
-            popup.classList.remove('popup_opened');
-    }});
+function closeEscPopup(evt) { 
+    if(evt.key === 'Escape') { 
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
+    };
 };
 
 //Функция закрытия попапа по клику за пределами рабочей зоны
@@ -170,7 +169,11 @@ popUpProfileEditCloseBtn.addEventListener('click', () => closePopup(popUpProfile
 
 //! обработчики сотыбий для попапа добавления фото-карточек
 popUpAddCardsFormElement.addEventListener('submit', handleAddCardsSubmit); //обработичик оправки данных из формы попапа
-addCardsBtn.addEventListener('click', () => openPopup(popUpAddCards)); //обработичик открытия попапа
+// отктие попапа карточек
+addCardsBtn.addEventListener('click', () => {
+    disableSubmitButton(popupSave, 'popup__save_inactive')
+    openPopup(popUpAddCards);
+});
 popUpAddCardsCloseBtn.addEventListener('click', () => closePopup(popUpAddCards)); //обработичик закрытия попапа 
 
 //! обработчик собития для попапа изображений
