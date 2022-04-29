@@ -150,12 +150,8 @@ function closeEscPopup(evt) {
     };
 };
 
-//Функция закрытия попапа по клику за пределами рабочей зоны
-document.addEventListener('click', function(evt){
-    if (evt.target.classList.contains('popup_opened')){
-        evt.target.classList.remove('popup_opened');
-    }
-});
+//закрытие попапа по клику на оверлей
+popupOverlay.forEach(overlay => overlay.addEventListener('click', (evt) => closePopup(evt.currentTarget)));
 
 
 //! обработчики событий для попапа редактирования профиля
