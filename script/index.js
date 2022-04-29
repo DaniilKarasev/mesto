@@ -151,7 +151,11 @@ function closeEscPopup(evt) {
 };
 
 //закрытие попапа по клику на оверлей
-popupOverlay.forEach(overlay => overlay.addEventListener('click', (evt) => closePopup(evt.currentTarget)));
+document.addEventListener('click', function(evt){
+    if (evt.target.classList.contains('popup_opened')){
+        closePopup(evt.target)
+    }
+}); 
 
 
 //! обработчики событий для попапа редактирования профиля
