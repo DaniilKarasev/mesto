@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
 </head>
 <body class="root">
     
     <div class="page">
         <header class="header">
-            <img class="logo" src="./images/logo.svg" alt="Место">
+            <img class="logo" src="<%=require('./images/logo.svg')%>" alt="Место">
         </header>
 
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="./images/kusto.png" alt="Аватар"> 
+                <img class="profile__avatar" src="<%=require('./images/kusto.png')%>" alt="Аватар"> 
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>                   
                     <button class="profile__edit-btn" type="button" aria-label="Редактировать"></button> 
@@ -44,7 +44,6 @@
                             </label>
                             <button class="popup__save" type="submit" disabled>Сохранить</button>                       
                         </fieldset>
-                        
                     </form>
                     <button class="popup__close" type="button" aria-label="Закрыть"></button>
                 </div>
@@ -95,11 +94,20 @@
             </div>
         </article>
     </template>
+    
+    <!--
 
-<script type="module" src="./script/index.js"></script>  
-<script type="module" src="./script/FormValidator.js"></script>  
-<script type="module" src="./script/Card.js"></script>
+    <script type="module" src="./utils/constants.js"></script>
+    <script type="module" src="./components/index.js"></script>
+    <script type="module" src="./components/FormValidator.js"></script>
+    <script type="module" src="./components/Card.js"></script>
+    <script type="module" src="./components/Popup.js"></script>
+    <script type="module" src="./components/PopupWithForm.js"></script>
+    <script type="module" src="./components/PopupWithImage.js"></script>
+    <script type="module" src="./components/UserInfo.js"></script>
+    <script type="module" src="./components/Section.js"></script>
 
+    -->
 
 </body>
 </html>
