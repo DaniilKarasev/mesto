@@ -5,7 +5,7 @@ import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import './index.css';
+import '../pages/index.css';
 
 import {
     initialCards,
@@ -64,8 +64,8 @@ const addCard = () => {
 
 
 const userInfo = new UserInfo({
-        name: profileName,
-        job: profileJob
+    userProfileName: profileName,
+    userProfileJob: profileJob
     }
 );
 
