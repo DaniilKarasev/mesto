@@ -1,12 +1,16 @@
 .profile__edit-btn {
-    margin: 0;
-    padding: 0;
-    width: 24px;
+    margin-left: 19px;
+    min-width: 24px;
     height: 24px;
+    display: inline-block;
     box-sizing: border-box;
-    background-color: #000;
     background: url(../../../images/edit-btn.svg) no-repeat center;
-    border: solid 1px white;
+    background-repeat: no-repeat;
+    background-color: #000;
+    background-position: center;
+    background-size: 10px;
+    border: 1px solid #ffffff;
+    transition: opacity 0.5s ease-in-out;
     cursor: pointer;
 }
 
@@ -15,11 +19,11 @@
     transition: all 0.2s ease-in-out;
 }
 
-@media screen and (max-width: 900px) {
+@media (max-width: 768px) {
     .profile__edit-btn {
-        width: 18px;
+        margin-left: 10px;
+        min-width: 18px;
         height: 18px;
         background-size: 7.5px;
-        margin-top: 20px;
     }
 }

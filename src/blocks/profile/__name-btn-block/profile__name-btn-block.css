@@ -1,0 +1,12 @@
+.profile__name-btn-block {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+@media (max-width: 768px) {
+    .profile__name-btn-block {
+        justify-content: center;
+        align-items: center;
+    }
+}

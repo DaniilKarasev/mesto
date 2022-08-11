@@ -1,4 +1,3 @@
 .popup__input-error { 
-    visibility: hidden;
-    opacity: 0;
+    display: none;
 }

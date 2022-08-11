@@ -1,14 +1,14 @@
 export default class Card {
 
-    constructor({data}, template, {handleCardClick}) {
+    constructor({data}, templateSelector, {handleCardClick}) {
         this._imgText = data.name;
         this._imgSrc = data.link;
-        this._template = template;
+        this.templateSelector = templateSelector;
         this.handleCardClick = handleCardClick;
     };
 
     _getCardTemplate() {
-        this._cardTemplate = document.querySelector(this._template).content.querySelector('.photo-cards__content-wrapper').cloneNode(true);
+        this._cardTemplate = document.querySelector(this.templateSelector).content.querySelector('.photo-cards__content-wrapper').cloneNode(true);
         
         return this._cardTemplate;
     };

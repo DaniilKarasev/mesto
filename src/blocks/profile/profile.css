@@ -3,19 +3,20 @@
     display: flex;
     align-items: center;
     margin-bottom: 50px;
+    column-gap: 30px;
 }
 
-
-@media screen and (min-width: 426px) and (max-width: 900px) {
+@media (max-width: 1080px) {
     .profile {
         flex-wrap: wrap;
-        justify-content: center;
+        row-gap: 36px;
     }
 }
 
-@media screen and (max-width: 481px) {
+@media (max-width: 768px) {
     .profile {
+        padding: 42px 0 0;
         flex-direction: column;
-        margin-bottom: 36px;
+        row-gap: 0;
     }
 }

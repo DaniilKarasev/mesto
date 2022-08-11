@@ -1,13 +1,18 @@
 .profile__add-btn {
-    margin: 0;
     padding: 0;
-    min-width: 150px;
+    flex-grow: 1;
+    max-width: 150px;
+    min-width: 50px;
     height: 50px;
     box-sizing: border-box;
-    background-color: #000;
     background: url(../../../images/add-btn.svg) no-repeat center;
-    border: solid 2px white;
+    background-repeat: no-repeat;
+    background-color: #000;
+    background-position: center;
+    background-size: 22px;
+    border: 2px solid #ffffff;
     border-radius: 2px;
+    transition: opacity 0.5s ease-in-out;
     cursor: pointer;
 }
 
@@ -16,10 +21,11 @@
     transition: all 0.2s ease-in-out;
 }
 
-@media screen and (max-width: 481px) {
-    .profile__add-btn{
-        margin-top: 33px;
-        min-width: 100%;
+@media (max-width: 899px) {
+    .profile__add-btn {
+        margin: 33px 0 0;
+        width: 100%;
+        max-width: 100%;
         background-size: 16px;
     }
 }
