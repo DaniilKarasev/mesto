@@ -30,31 +30,18 @@ export default class Card {
         return this._card;
     };
 
-    _imgPopupOpen() {
-        this._photo.addEventListener("click", () => {
-                    this.handleCardClick();
-                }
-            );
-    };
-    
-    _likeCard() {
-        this._likeBtn.addEventListener('click', () => {
-                this._likeBtn.classList.toggle('photo-cards__like-btn_active');
-            }
-        );    
+    _handleLikeCard() {
+        this._likeBtn.classList.toggle('photo-cards__like-btn_active');    
     };
 
     _deleteCard() {
-        this._deleteBtn.addEventListener('click', () => {
-                this._card.remove();
-                this._card = null;
-            }
-        );
+        this._card.remove();
+        this._card = null;
     };
 
     _setEventListeners() {
-        this._imgPopupOpen();
-        this._likeCard();
-        this._deleteCard();
+        this._photo.addEventListener("click", ()=> this.handleCardClick());
+        this._likeBtn.addEventListener("click", (e) => this._handleLikeCard(e));
+        this._deleteBtn.addEventListener("click", () => this._deleteCard());
     };
 };

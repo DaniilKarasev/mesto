@@ -1,13 +1,13 @@
 // класс валидации.
 export default class FormValidator {
-    constructor(enableValidation, form) {
+    constructor(validationConfig, form) {
         this._form = form;
-        this._inputSelector = enableValidation.inputSelector;
-        this._submitButtonSelector = enableValidation.submitButtonSelector;
-        this._inputErrorTextSelector = enableValidation.inputErrorTextSelector;
-        this._inactiveButtonClass = enableValidation.inactiveButtonClass;
-        this._inputErrorClass = enableValidation.inputErrorClass;
-        this._errorClass = enableValidation.errorClass;
+        this._inputSelector = validationConfig.inputSelector;
+        this._submitButtonSelector = validationConfig.submitButtonSelector;
+        this._inputErrorTextSelector = validationConfig.inputErrorTextSelector;
+        this._inactiveButtonClass = validationConfig.inactiveButtonClass;
+        this._inputErrorClass = validationConfig.inputErrorClass;
+        this._errorClass = validationConfig.errorClass;
         this._allInputsSelector = this._form.querySelectorAll(this._inputSelector);
     };
 
@@ -55,7 +55,7 @@ export default class FormValidator {
         );
     };
 
-    enableValidation() {
+    validationConfig() {
         this._setEventListeners();
         this._toggleButtonState();
     };

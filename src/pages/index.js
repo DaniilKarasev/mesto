@@ -9,43 +9,44 @@ import '../pages/index.css';
 
 import {
     initialCards,
-    enableValidation,
-    profileName,
-    profileJob,
-    photoCardsContainer,
-    popupProfileEdit,
+    validationConfig,
+    profileNameSelector,
+    profileJobSelector,
+    photoCardsContainerSelector,
+    popupProfileEditSelector,
     popupProfileEditBtn,
     popupProfileEditForm,
     popupProfileEditNameInput,
     popupProfileEditJobInput,
-    popupAddCard,
+    popupAddCardSelector,
     popupAddCardBtn,
     popupAddCardForm,
-    templateCards,
-    popUpCardsImg,
+    templateCardsSelector,
+    popUpCardsImgSelector,
     popupAddCardNameInput,
     popupAddCardLinkInput
 } from '../utils/constants.js';
 
 
 function createCard(item, templateSelector) {
-    const cards = new Card({data: item}, templateSelector, {
+    const card = new Card({data: item}, templateSelector, {
             handleCardClick:() => {
+                popupImg.setEventListeners();
                 popupImg.open(item);
             }
         }
     );
 
-    return cards.createCard();
+    return card.createCard();
 };
 
 const section = new Section({items: initialCards, renderer: (item) => {
-            const card = createCard(item, templateCards);
+            const card = createCard(item, templateCardsSelector);
             
             section.addItem(card, 'append');
         }
     }, 
-    photoCardsContainer
+    photoCardsContainerSelector
 );
 
 
@@ -57,61 +58,62 @@ const addCard = () => {
                     name: popupAddCardNameInput.value,
                     link: popupAddCardLinkInput.value
                 },
-            templateCards
+            templateCardsSelector
         ), 'prepend'
     );
 };
 
 
 const userInfo = new UserInfo({
-    userProfileName: profileName,
-    userProfileJob: profileJob
+    userProfileName: profileNameSelector,
+    userProfileJob: profileJobSelector
     }
 );
 
 const editProfile = () => {
     userInfo.setUserInfo({
-            nameinput: popupProfileEditNameInput,
+            nameInput: popupProfileEditNameInput,
             jobInput: popupProfileEditJobInput
         }
     );
 };
 
-
-
-popupProfileEditBtn.addEventListener("click", () => {
+function fillProfilePopupInputs() {
     const {name, job} = userInfo.getUserInfo();
 
     popupProfileEditNameInput.value = name
     popupProfileEditJobInput.value = job
+}
 
-    const popup = new PopupWithForm({
-                formAction: editProfile
-            },
-        popupProfileEdit
-    );
-
+popupProfileEditBtn.addEventListener("click", () => {
+    fillProfilePopupInputs();
     popupProfileEditEnableValidation.hideFormErrors();
 
+    const popup = new PopupWithForm({handleSubmit: editProfile},
+        popupProfileEditSelector
+    );
+
+    popup.setEventListeners();
     popup.open();
 });
 
 popupAddCardBtn.addEventListener("click", () => {
-    const popup = new PopupWithForm({
-                formAction: addCard
-            },
-        popupAddCard
-    );
-
     popupAddCardEnableValidation.hideFormErrors();
 
+    const popup = new PopupWithForm({
+                handleSubmit: addCard
+            },
+        popupAddCardSelector
+    );
+
+    popup.setEventListeners();
     popup.open();
 });
 
-const popupImg = new PopupWithImage(popUpCardsImg);
+const popupImg = new PopupWithImage(popUpCardsImgSelector);
 
-const popupProfileEditEnableValidation  = new FormValidator(enableValidation, popupProfileEditForm)
-popupProfileEditEnableValidation.enableValidation();
+const popupProfileEditEnableValidation  = new FormValidator(validationConfig, popupProfileEditForm)
+popupProfileEditEnableValidation.validationConfig();
 
-const popupAddCardEnableValidation  = new FormValidator(enableValidation, popupAddCardForm)
-popupAddCardEnableValidation.enableValidation();
+const popupAddCardEnableValidation  = new FormValidator(validationConfig, popupAddCardForm)
+popupAddCardEnableValidation.validationConfig();
