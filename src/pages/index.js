@@ -65,8 +65,8 @@ const addCard = () => {
 
 
 const userInfo = new UserInfo({
-    userProfileName: profileNameSelector,
-    userProfileJob: profileJobSelector
+    userProfileNameSelector: profileNameSelector,
+    userProfileJobSelector: profileJobSelector
     }
 );
 
@@ -113,7 +113,7 @@ popupAddCardBtn.addEventListener("click", () => {
 const popupImg = new PopupWithImage(popUpCardsImgSelector);
 
 const popupProfileEditEnableValidation  = new FormValidator(validationConfig, popupProfileEditForm)
-popupProfileEditEnableValidation.validationConfig();
+popupProfileEditEnableValidation.enableValidation();
 
 const popupAddCardEnableValidation  = new FormValidator(validationConfig, popupAddCardForm)
-popupAddCardEnableValidation.validationConfig();
+popupAddCardEnableValidation.enableValidation();
