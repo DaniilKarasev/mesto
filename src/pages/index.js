@@ -52,10 +52,10 @@ const section = new Section({items: initialCards, renderer: (item) => {
 section.renderItems();
 
 
-const addCard = () => {
+const addCard = (newCard) => {
         section.addItem(createCard({
-                    name: popupAddCardNameInput.value,
-                    link: popupAddCardLinkInput.value
+                    name: newCard[popupAddCardNameInput.name],
+                    link: newCard[popupAddCardLinkInput.name]
                 },
             templateCardsSelector
         ), 'prepend'
@@ -70,10 +70,10 @@ const userInfo = new UserInfo({
 );
 
 
-const editProfile = () => {
+const editProfile = (formInputs) => {
     userInfo.setUserInfo({
-            nameInput: popupProfileEditNameInput,
-            jobInput: popupProfileEditJobInput
+            nameInput: formInputs[popupProfileEditNameInput.name],
+            jobInput: formInputs[popupProfileEditJobInput.name]
         }
     );
 };
@@ -90,27 +90,28 @@ function fillProfilePopupInputs() {
 const popupProfileEdit = new PopupWithForm({handleSubmit: editProfile}, popupProfileEditSelector);
 popupProfileEdit.setEventListeners();
 
+const popupProfileEditValidator  = new FormValidator(validationConfig, popupProfileEditForm)
+popupProfileEditValidator.enableValidation();
+
 popupProfileEditBtn.addEventListener("click", () => {
     fillProfilePopupInputs();
 
-    popupProfileEditEnableValidation.hideFormErrors();
+    popupProfileEditValidator.hideFormErrors();
     popupProfileEdit.open();
 });
-
-const popupProfileEditEnableValidation  = new FormValidator(validationConfig, popupProfileEditForm)
-popupProfileEditEnableValidation.enableValidation();
 
 
 const popupAddCard = new PopupWithForm({handleSubmit: addCard}, popupAddCardSelector);
 popupAddCard.setEventListeners();
 
+const popupAddCardValidator  = new FormValidator(validationConfig, popupAddCardForm)
+popupAddCardValidator.enableValidation();
+
 popupAddCardBtn.addEventListener("click", () => {
-    popupAddCardEnableValidation.hideFormErrors();
+    popupAddCardValidator.hideFormErrors();
     popupAddCard.open();
 });
 
-const popupAddCardEnableValidation  = new FormValidator(validationConfig, popupAddCardForm)
-popupAddCardEnableValidation.enableValidation();
 
 const popupImg = new PopupWithImage(popUpCardsImgSelector);
 popupImg.setEventListeners();
