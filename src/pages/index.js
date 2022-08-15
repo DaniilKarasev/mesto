@@ -31,18 +31,17 @@ import {
 function createCard(item, templateSelector) {
     const card = new Card({data: item}, templateSelector, {
             handleCardClick:() => {
-                popupImg.setEventListeners();
                 popupImg.open(item);
             }
         }
     );
-
+    
     return card.createCard();
 };
 
+
 const section = new Section({items: initialCards, renderer: (item) => {
             const card = createCard(item, templateCardsSelector);
-            
             section.addItem(card, 'append');
         }
     }, 
@@ -70,6 +69,7 @@ const userInfo = new UserInfo({
     }
 );
 
+
 const editProfile = () => {
     userInfo.setUserInfo({
             nameInput: popupProfileEditNameInput,
@@ -78,42 +78,39 @@ const editProfile = () => {
     );
 };
 
+
 function fillProfilePopupInputs() {
     const {name, job} = userInfo.getUserInfo();
-
+    
     popupProfileEditNameInput.value = name
     popupProfileEditJobInput.value = job
 }
 
+
+const popupProfileEdit = new PopupWithForm({handleSubmit: editProfile}, popupProfileEditSelector);
+popupProfileEdit.setEventListeners();
+
 popupProfileEditBtn.addEventListener("click", () => {
     fillProfilePopupInputs();
+
     popupProfileEditEnableValidation.hideFormErrors();
-
-    const popup = new PopupWithForm({handleSubmit: editProfile},
-        popupProfileEditSelector
-    );
-
-    popup.setEventListeners();
-    popup.open();
+    popupProfileEdit.open();
 });
-
-popupAddCardBtn.addEventListener("click", () => {
-    popupAddCardEnableValidation.hideFormErrors();
-
-    const popup = new PopupWithForm({
-                handleSubmit: addCard
-            },
-        popupAddCardSelector
-    );
-
-    popup.setEventListeners();
-    popup.open();
-});
-
-const popupImg = new PopupWithImage(popUpCardsImgSelector);
 
 const popupProfileEditEnableValidation  = new FormValidator(validationConfig, popupProfileEditForm)
 popupProfileEditEnableValidation.enableValidation();
 
+
+const popupAddCard = new PopupWithForm({handleSubmit: addCard}, popupAddCardSelector);
+popupAddCard.setEventListeners();
+
+popupAddCardBtn.addEventListener("click", () => {
+    popupAddCardEnableValidation.hideFormErrors();
+    popupAddCard.open();
+});
+
 const popupAddCardEnableValidation  = new FormValidator(validationConfig, popupAddCardForm)
 popupAddCardEnableValidation.enableValidation();
+
+const popupImg = new PopupWithImage(popUpCardsImgSelector);
+popupImg.setEventListeners();
