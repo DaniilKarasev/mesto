@@ -10,6 +10,7 @@ export const popupAvatarEditBtn = document.querySelector('.profile__avatar-edit-
 export const popupAvatarEditForm = document.querySelector(".popup__form[name=popUpAvatarEditForm]");
 export const popupAddCardBtn = document.querySelector(".profile__add-btn");
 export const popupAddCardForm = document.querySelector(".popup__form[name=popUpCardEditForm]");
+
 export const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',

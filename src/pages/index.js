@@ -55,7 +55,6 @@ api.getAllNeededData()
     }
 }, photoCardsContainerSelector);
 
-
 const addCard = (item) => {
     const card = new Card({data: item, api, userId, openPopupWithDelete: () => {
             popupDeleteCard.setSubmitAction(_ => {
@@ -74,7 +73,15 @@ const addCard = (item) => {
             popupImg.open(item);
         },
         likeHandleClick: () => {
-            card.handleLikeCard();
+            if(!card._likeBtn.classList.contains("photo-cards__like-btn_active")){
+                api.like(item._id)
+                    .then(res => card.handleLikeCard(res.likes))
+                    .catch((err) => console.log(err))
+            } else {
+                api.dislike(item._id)
+                    .then(res => card.handleLikeCard(res.likes))
+                    .catch((err) => console.log(err))
+            } 
         },
     }, '#templateCards');
 
