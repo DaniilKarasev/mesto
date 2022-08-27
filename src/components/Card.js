@@ -71,7 +71,8 @@ export default class Card {
     }
 
     handleDeleteImage() {
-        this._card.closest(".photo-cards__content-wrapper").remove();
+        this._card.remove();
+        this._card = null;
     }
 
         _likeSetEventListeners() {

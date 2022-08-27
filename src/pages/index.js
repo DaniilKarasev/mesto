@@ -118,7 +118,6 @@ const popupProfileEdit = new PopupWithForm({
     popupSelector: '.popup_type_profile-edit',
     handleSubmitForm: (data) => {
         popupProfileEdit.renderLoading(true);
-        userInfo.getUserInfo(data);
         api.setUserInfo(data)
             .then((data) => {
                 userInfo.setUserInfo(data);
