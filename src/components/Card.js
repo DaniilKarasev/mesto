@@ -45,8 +45,6 @@ export default class Card {
         this._deleteBtn = this._card.querySelector(".photo-cards__delete-btn");
         this._likeBtn = this._card.querySelector(".photo-cards__like-btn");
         this._cardLikeCount = this._card.querySelector(".photo-cards__like-count");
-        this.likeBtn = this._card.querySelector(".photo-cards__like-btn");
-        this.likeCount = this._card.querySelector(".photo-cards__like-count");
 
         this._photo.src = this._imgSrc;
         this._photo.alt = this._imgText;
@@ -82,12 +80,12 @@ export default class Card {
     }
 
     handleLikeCard(likes) {
-        this.likeCount.textContent = likes.length;
+        this._cardLikeCount.textContent = likes.length;
 
-        if (!this.likeBtn.classList.contains("photo-cards__like-btn_active")) {
-            this.likeBtn.classList.add("photo-cards__like-btn_active");
+        if (!this._likeBtn.classList.contains("photo-cards__like-btn_active")) {
+            this._likeBtn.classList.add("photo-cards__like-btn_active");
         } else {
-            this.likeBtn.classList.remove("photo-cards__like-btn_active");
+            this._likeBtn.classList.remove("photo-cards__like-btn_active");
         }
     }
 
