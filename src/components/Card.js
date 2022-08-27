@@ -79,16 +79,22 @@ export default class Card {
         });
     }
 
-    handleLikeCard(likes) {
-        this._cardLikeCount.textContent = likes.length;
+    handleLikeCard(likes, likeBtn) {
+        likeBtn = this._likeBtn.classList
+        this._cardLikeCount.textContent = likes.length
 
-        if (!this._likeBtn.classList.contains("photo-cards__like-btn_active")) {
-            this._likeBtn.classList.add("photo-cards__like-btn_active");
+        if (!this.isLiked()) {
+            likeBtn.add("photo-cards__like-btn_active");
         } else {
-            this._likeBtn.classList.remove("photo-cards__like-btn_active");
+            likeBtn.remove("photo-cards__like-btn_active");
         }
     }
 
+    isLiked(){
+        if (this._likeBtn.classList.contains("photo-cards__like-btn_active")){
+            return true
+        }
+    }
 
     _setEventListeners() {
         this._likeSetEventListeners();

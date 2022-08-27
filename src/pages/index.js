@@ -73,7 +73,7 @@ const addCard = (item) => {
             popupImg.open(item);
         },
         likeHandleClick: () => {
-            if(!card._likeBtn.classList.contains("photo-cards__like-btn_active")){
+            if(!card.isLiked()){
                 api.like(item._id)
                     .then(res => card.handleLikeCard(res.likes))
                     .catch((err) => console.log(err))
